@@ -1,0 +1,118 @@
+
+/* ------------------------------ */
+/* CONSTANTS
+/* ------------------------------ */
+
+.font-size(@sizeValue) {
+  @remValue: @sizeValue;
+  @pxValue: (@sizeValue * 10);
+  font-size: ~"@{pxValue}px"; 
+  font-size: ~"@{remValue}rem";
+}
+
+@media screen and (max-width: 1140px) {
+	
+	/* ------------------------------ */
+	/* MAIN LAYOUT/ELEMENTS
+	/* ------------------------------ */
+
+	.width{ padding-left:30px; padding-right:30px}
+	
+	#social, #ph, .flexslider .caption{ right:30px}
+	
+	#footer { 
+		.grid.third{ width:33.333%}
+		.cyberstart, .copy{ position:relative; right:0} 
+		.cyberstart{ margin:20px 0}
+	}
+	
+	
+	/* ------------------------------ */
+	/* PAGE ELEMENTS
+	/* ------------------------------ */
+	
+	.flexslider{
+		li{ height:400px; background-size:auto 100%;}
+		.caption{ bottom:30px}
+	}
+	
+}
+
+
+@media screen and (max-width: 950px) {
+
+	/* ------------------------------ */
+	/* MAIN LAYOUT/ELEMENTS
+	/* ------------------------------ */
+	
+	.content-area{ float: none; margin: 0;}
+	.site-main{ 
+		margin: 0;
+		.page{ padding-right:0}
+	}
+	.site-content .widget-area{ float: none; width: auto; margin-top:50px}
+
+}
+
+
+@media screen and (max-width: 700px) {
+	
+	/* ------------------------------ */
+	/* MAIN LAYOUT/ELEMENTS
+	/* ------------------------------ */
+	
+	.grid.third{ width:auto; float:none; margin-bottom:20px}
+	.grid.quarter{ width:50%}
+	
+	#ph{ .font-size(3) }
+	
+	#header-image{ height:200px; background-size:auto 100%}
+	
+	#footer .grid.third{ width:auto}
+
+	.menu-toggle,
+	.main-navigation.toggled .nav-menu {display: block; }
+	.main-navigation ul { display: none; }
+	
+	
+	/* ------------------------------ */
+	/* PAGE ELEMENTS
+	/* ------------------------------ */
+	
+	.flexslider{
+		li{ height:250px}
+		.caption{ .font-size(3); padding:20px 30px}
+	}
+	
+}
+
+
+@media screen and (max-width: 480px) {
+	
+	/* ------------------------------ */
+	/* MAIN LAYOUT/ELEMENTS
+	/* ------------------------------ */
+	
+	.width{ padding-left:15px; padding-right:15px}
+	
+	#masthead{ padding-top:20px; padding-bottom:20px}
+	.site-title img{ max-width:290px}
+	#social{ 
+		position:relative; top:0; right:0; margin-top:15px; 
+		a{ float:none; margin-left:10px}
+	}
+	#ph{ position:relative; right:0; bottom:0; }
+	
+	
+	/* ------------------------------ */
+	/* PAGE ELEMENTS
+	/* ------------------------------ */
+	
+	.flexslider{ display:none}
+	
+	#text-3{
+		form{  padding:20px}
+		h3{ .font-size(3.2) }
+	}
+	
+}

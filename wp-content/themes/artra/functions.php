@@ -89,8 +89,8 @@ function artra_widgets_init() {
 		'name'          => __( 'Footer', 'artra' ),
 		'id'            => 'footer',
 		'description'   => '',
-		'before_widget' => '<div>',
-		'after_widget'  => '</div>',
+		'before_widget' => '',
+		'after_widget'  => '',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
 	) );
@@ -101,8 +101,9 @@ add_action( 'widgets_init', 'artra_widgets_init' );
  * Enqueue scripts and styles.
  */
 function artra_scripts() {
-	wp_enqueue_style( 'artra-style', get_stylesheet_uri() );
 
+	wp_enqueue_script( 'artra-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '', true );
+	
 	wp_enqueue_script( 'artra-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'artra-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
@@ -116,9 +117,18 @@ add_action( 'wp_enqueue_scripts', 'artra_scripts' );
 add_action('init', 'artra_enqueue_styles');
 
 function artra_enqueue_styles() {
+	wp_enqueue_style('theme-fonts', get_stylesheet_directory_uri().'/less/fonts.less');
     wp_enqueue_style('theme-main', get_stylesheet_directory_uri().'/less/style.less');
     wp_enqueue_style('theme-extra', get_stylesheet_directory_uri().'/less/artra.less');
+	wp_enqueue_style('theme-responsive', get_stylesheet_directory_uri().'/less/respond.less');
 }
+
+
+/**
+ * Include custom post types
+ */
+require_once('home-slider-image-type.php');
+
 
 /**
  * Implement the Custom Header feature.
@@ -133,6 +143,16 @@ function less_setup() {
 	add_theme_support( 'less', array( 'enable' => true ) );
 }
 add_action( 'after_setup_theme', 'less_setup' );
+
+
+/**
+ * Text editor font formats
+ */
+function wpa_45815($arr){
+    $arr['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5';
+    return $arr;
+  }
+add_filter('tiny_mce_before_init', 'wpa_45815');
 
 /**
  * Custom template tags for this theme.

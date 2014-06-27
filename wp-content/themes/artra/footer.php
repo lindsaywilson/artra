@@ -12,10 +12,12 @@
 
 	<footer id="footer" class="site-footer" role="contentinfo">
     <div class="inner width">
-		<div class="widget">
-			<?php if ( dynamic_sidebar( 'footer' ) ) : ?>
-            <?php endif; // end footer widget area ?>
-		</div><!-- .site-info -->
+		<div class="widget clear">
+			<?php dynamic_sidebar( 'footer' ) ?>
+		</div>
+        <span class="cyberstart"></span>
+        <span class="copy">&copy; <?php print date('Y'); ?> ARTRA</span>
+        <!-- .site-info -->
 	</div>
     </footer><!-- #footer -->
 </div><!-- #page -->

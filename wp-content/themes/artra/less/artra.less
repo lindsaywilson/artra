@@ -1,23 +1,173 @@
 
 
 /* ------------------------------ */
+/* CONSTANTS
+/* ------------------------------ */
+
+@orange: #ba5317;
+@dark: #582d15;
+@grey: #777777;
+@text: #333;
+@opensans: 'Open Sans Condensed', sans-serif;
+
+.font-size(@sizeValue) {
+  @remValue: @sizeValue;
+  @pxValue: (@sizeValue * 10);
+  font-size: ~"@{pxValue}px"; 
+  font-size: ~"@{remValue}rem";
+}
+
+/* ------------------------------ */
 /* MAIN LAYOUT/ELEMENTS
 /* ------------------------------ */
 
-.width { max-width: 1140px; margin: 0 auto;}
+html{ font-size:62.5%}
+body{ font-family:verdana; color:@text; .font-size(1.6)}
 
-.site-branding { 
-	padding: 30px 0;
-	h1 a{ background: url(/wp-content/themes/artra/images/logo.png); width: 298px; height: 110px; display: block; text-indent: -999em;}
+.width { max-width: 1140px; margin: 0 auto; position:relative}
+.grid{ float: left}
+.grid .inner{ padding-right:30px}
+.grid.half{ width:50%}
+.grid.third{ width:33.3333%}
+.grid.quarter{ width:50%}
+
+#masthead { 
+	padding-top: 30px; padding-bottom:30px;
+	h1{ margin:0; padding:0}
+	h1 a{ background: url(../images/logo.png); width: 298px; height: 110px; display: block; text-indent: -999em;}
 }
 
-.nav {
-	background: #ba5317; 
-	a { color: #fff; text-decoration: none;}
+#social{ 
+	position:absolute; top:40px; right:0;
+	a{ float:left; margin-left:10px}
+	a:hover{ opacity:0.5}
+	a:before{ display:inline-block; content:''; width:30px; height:30px; background:url(../images/icons.png)}
+	a.facebook:before{ background-position:0 0}
+	a.gplus:before{ background-position:-40px 0}
+	a.twitter:before{ background-position:-80px 0}
 }
+
+#ph{ font-family:@opensans; .font-size(4.8); color:@orange; position:absolute; right:0; bottom:25px; line-height:1 }
 
 #footer { 
-	background: #ba5317;
+	background: @orange url(../images/footer-watermark.png) no-repeat 85% 0; color:#fff; .font-size(1.2); padding:30px 0;
 	a{ color:#fff}
-	ul{ float:left}
+	h3{ .font-size(3.4); font-family:@opensans; color:#fff; margin-bottom:20px }
+	ul{ margin:0 0 0 12px}
+	.grid.third{ width:auto}
+	.copy{ position:absolute; right:0; bottom:0}
+	.cyberstart{ background:url(../images/icons.png) 0 -40px; display:block; position:absolute; top:0; right:0; width:130px; height:42px;}
 }
+
+#header-image{ height:300px; background:center 0 no-repeat;}
+
+#content{ padding-top: 40px; padding-bottom:90px;}
+
+.content-area{ float: left; margin: 0 -32% 0 0; width: 100%;}
+.site-main{ 
+	margin: 0 32% 0 0;
+	.page{ padding-right:50px;}
+}
+.site-content .widget-area{ float: right; overflow: hidden; width: 32%;}
+
+.page-template-page-full-php .content-area{ margin:0; float:none;}
+.page-template-page-full-php .site-main{ 
+	margin: 0;
+	.page{ padding-right:0; }
+}
+.page-template-page-full-php .site-content .widget-area{ display:none;}
+
+
+/* ------------------------------ */
+/* NAVIGATION
+/* ------------------------------ */
+
+.main-navigation {
+	background: @orange; color:#fff; .font-size(2.4); font-family:@opensans; clear:both; display:block; line-height:2;
+	ul{ list-style: none; margin: 0; padding-left: 0;}
+	li{ float: left; position: relative; }
+	a{ color: #fff; text-decoration: none; color:#fff; padding:0 30px 0 0; display:block; text-decoration: none;}
+	ul ul{ box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2); float: left; position: absolute; top: 1.5em; left: -999em; z-index: 99999;}
+	ul ul ul{ left: -999em; top: 0; }
+	ul ul a{ width: 200px;}
+	ul ul li{}
+	li:hover > a{ }
+	ul ul :hover > a{ }
+	ul ul a:hover{}
+	ul li:hover > ul{ left: auto;}
+	ul ul li:hover > ul{ left: 100%;}
+	.current_page_item a,
+	.current-menu-item a{}
+}
+.menu-toggle { display: none;}
+
+
+/* ------------------------------ */
+/* PAGE ELEMENTS
+/* ------------------------------ */
+
+.flexslider{ 
+	border:none; box-shadow:none; margin:0;
+	li{ height:600px; background:center 0 no-repeat}
+	ul.flex-direction-nav{ display:none}
+	.width{ height:100%}
+	.caption{ position:absolute; color:@dark; font-family:@opensans; .font-size(4.8); right:0; bottom:50px; background:rgba(255,255,255,0.9); line-height:1; padding:40px 50px;}
+}
+
+#text-3{
+	background: #f2e6d6 url(../images/bg-watermark.png) 0 bottom no-repeat; 
+	.textwidget{ background: url(../images/tile-rule.png) right 0 repeat-y; }
+	form{  padding:35px 30px 50px 30px}
+	h3.widget-title{ display:none}
+	h3{ color:#fff; .font-size(3.4); text-transform:uppercase; height:200px; padding:110px 0 30px 30px; background: url(../images/bg-quote-header.jpg) no-repeat;}
+}
+
+
+/* ------------------------------ */
+/* HTML ELEMENTS/TYPOGRAPHY
+/* ------------------------------ */
+
+h1, h2, h3, h4, h5{ font-family: @opensans; line-height:1}
+h1{ .font-size(4.8); color:@dark; margin-bottom:40px}
+h2{ .font-size(3.4); color:@orange; margin-bottom:20px}
+h3{ .font-size(2); color:@orange; }
+h4{ .font-size(1.7)}
+h5{ .font-size(1.6)}
+
+p:last-of-type{ margin:0}
+
+a{ transition: all 0s ease 0s, all 0.15s ease 0s; color:@orange}
+a:hover{ color:@orange - 50}
+
+a.post-edit-link{ position:absolute; top:5px; right:0; background:@grey; color:#fff; text-decoration:none; display:block; padding:4px 10px; .font-size(1.3); text-transform:uppercase; font-family: @opensans; border-radius:3px}
+a.post-edit-link:hover{ color:#fff; opacity:0.5}
+
+
+/* ------------------------------ */
+/* FORMS
+/* ------------------------------ */
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] { background:#ba5317; color:#fff; .font-size(3); font-family:@opensans; padding:10px 35px; border-radius:5px; border:none; text-transform:uppercase; transition: all 0s ease 0s, all 0.15s ease 0s; margin-top:10px}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover { background:@dark}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea { border: 1px solid #f2e6d6; width:100%; padding:3px 10px; color:@dark; font-family:verdana; .font-size(1.3); }
+
+.form-item{
+	position:relative; margin-bottom:10px;
+	label{ color:@dark; font-family:verdana; .font-size(1.3); position:absolute; top:4px; left:10px; cursor:text; z-index:2}
+	span.wpcf7-not-valid-tip{ .font-size(1.2)}
+}
+.wpcf7-response-output{ display:none!important}
+
