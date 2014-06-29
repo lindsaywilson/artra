@@ -10,3 +10,8 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 # END WordPress
+
+<files wp-config.php>
+order deny,allow
+deny from all
+</files>

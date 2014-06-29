@@ -38,8 +38,11 @@ get_header(); ?>
 </div><!-- #content -->
 
 <?php 
-	// Insert image gallery on front page
+	// Insert image gallery
 	include get_template_directory() . '/inc/homepage-gallery.php';
+	
+	// Insert Promo Area Content
+	include get_template_directory() . '/inc/homepage-promo.php';
 ?>
 
 <?php get_footer(); ?>

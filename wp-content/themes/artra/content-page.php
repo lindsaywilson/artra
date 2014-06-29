@@ -16,8 +16,29 @@
 
 	<div class="entry-content">
 		<?php 
-			the_content();
 			
+			// Contact Page
+			// Render Phone Number
+			if($id == 84){
+				$ph = get_field('phone_number');
+				if( !empty($ph) ):
+				?>
+				<h2>Phone: <?php print $ph ?></h2>
+				<?php endif;
+			} ?>
+			
+            <div class="the-content">
+            	<div class="inner">
+					<?php the_content(); ?>
+                </div>
+            </div>
+			
+            <?php
+			// Contact Page
+			// Render Google Map
+			if($id == 84){
+				include get_template_directory(). '/inc/googlemap.php';
+			}
 			
 			// Feedback form page
 			// Output Feedback Form
@@ -27,40 +48,9 @@
 			
 			// Feedback Page
 			// Get all feedback posts by category
-			if($id == 69):
-		?>
-				
-			<ul id="feedback">
-			<?php
-            
-            $args = array( 'category' => 3 );
-            
-            $feedback = get_posts( $args );
-            foreach ( $feedback as $post ) : setup_postdata( $post ); 
-			$content = get_the_content();
-			?>
-                <li class="clear">
-                	<div class="feedback-image">
-                	<?php
-						if ( has_post_thumbnail() ) {
-						  the_post_thumbnail();
-						}
-					?>
-                    </div>
-                    <div class="feedback-content">
-                        <div class="feedback">"<?php print wp_filter_nohtml_kses($content); ?>"</div>
-                        <div class="author"><?php the_title(); ?></div>
-                    </div>
-                </li>
-            <?php endforeach; 
-            wp_reset_postdata();?>
-            
-            </ul>	
-            
-            <a href="/feedback-form" class="btn">Submit Feedback</a>
-				
-		<?php
-			endif;		
+			if($id == 69){
+				include get_template_directory(). '/inc/feedback.php';
+			}	
 
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'artra' ),

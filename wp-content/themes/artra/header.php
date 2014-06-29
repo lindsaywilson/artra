@@ -37,7 +37,7 @@
     
     <nav id="site-navigation" class="main-navigation" role="navigation">
     <div class="inner width clear">
-		<button class="menu-toggle"><?php _e( 'Primary Menu', 'artra' ); ?></button>
+		<a class="icon-menu menu-toggle"><?php _e( 'Menu', 'artra' ); ?></a>
 		<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 	</div>
     </nav><!-- #site-navigation -->
@@ -46,13 +46,16 @@
 	
 	if(is_front_page()): 
 		
-		include get_template_directory() . '/inc/homepage-slider.php';
+		include get_template_directory(). '/inc/homepage-slider.php';
 		
 	else:
-		
 		$thumb_id = get_post_thumbnail_id();
-		$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-		$thumb_url = $thumb_url_array[0];	
+		if($thumb_id == ''){
+			$thumb_url = get_template_directory_uri().'/images/feature_image.jpg';
+		} else{
+			$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+			$thumb_url = $thumb_url_array[0];	
+		}
 	?>
     
     	<div id="header-image" style="background-image:url(<?php print $thumb_url; ?>);"></div>

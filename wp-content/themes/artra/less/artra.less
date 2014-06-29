@@ -5,7 +5,7 @@
 /* ------------------------------ */
 
 @orange: #ba5317;
-@lightOrange: #f6ede2;
+@lightOrange: #f2e6d6;
 @dark: #582d15;
 @grey: #777777;
 @light: #555;
@@ -52,7 +52,7 @@ body{ font-family:verdana; color:@text; .font-size(1.6)}
 #header-image{ height:300px; background:center 0 no-repeat;}
 
 #footer { 
-	background: @orange url(../images/footer-watermark.png) no-repeat 85% 0; color:#fff; .font-size(1.2); padding:30px 0;
+	background: @orange url(../images/footer_watermark.png) no-repeat 85% 0; color:#fff; .font-size(1.2); padding:30px 0;
 	a{ color:#fff}
 	h3{ .font-size(3.4); font-family:@opensans; color:#fff; margin-bottom:20px }
 	ul{ margin:0 0 0 12px}
@@ -67,7 +67,7 @@ body{ font-family:verdana; color:@text; .font-size(1.6)}
 .content-area{ float: left; margin: 0 -32% 0 0; width: 100%;}
 .site-main{ 
 	margin: 0 32% 0 0;
-	.page{ padding-right:50px;}
+	.page{ padding-right:70px;}
 }
 .site-content .widget-area{ float: right; overflow: hidden; width: 32%;}
 
@@ -83,38 +83,40 @@ body{ font-family:verdana; color:@text; .font-size(1.6)}
 /* NAVIGATION
 /* ------------------------------ */
 
-.main-navigation {
+.main-navigation {	
 	background: @orange; color:#fff; .font-size(2.4); font-family:@opensans; clear:both; display:block; line-height:2;
+	.menu-toggle { display: none; cursor:pointer; text-align:center}
+	.icon-menu:before{ .font-size(1.7); top:-2px; position:relative; width:1.55em}
 	ul{ list-style: none; margin: 0; padding-left: 0;}
 	li{ float: left; position: relative; }
-	a{ color: #fff; text-decoration: none; color:#fff; padding:0 30px 0 0; display:block; text-decoration: none;}
-	ul ul{ box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2); float: left; position: absolute; top: 1.5em; left: -999em; z-index: 99999;}
+	a{ color: #fff; text-decoration: none; padding:0 30px 0 0; display:block; text-decoration: none;}
+	a:hover{ color:@dark}
+	ul ul{ float: left; position: absolute; top:100%; left: -999em; z-index: 99999; background:@orange; line-height:1; .font-size(2)}
 	ul ul ul{ left: -999em; top: 0; }
-	ul ul a{ width: 200px;}
-	ul ul li{}
-	li:hover > a{ }
-	ul ul :hover > a{ }
-	ul ul a:hover{}
-	ul li:hover > ul{ left: auto;}
+	ul ul a{ width: 200px; padding:15px 20px 0 20px}
+	ul ul li:last-of-type a{ padding-bottom:15px}
+	ul li:hover > ul{ left: -20px;}
 	ul ul li:hover > ul{ left: 100%;}
-	.current_page_item a,
-	.current-menu-item a{}
+	.current_page_ancestor > a,
+	.current_page_item > a,
+	.current-menu-item a{ color:@dark}
 }
-.menu-toggle { display: none;}
 
 
 /* ------------------------------ */
 /* ELEMENTS/TYPOGRAPHY
 /* ------------------------------ */
 
-h1, h2, h3, h4, h5{ font-family: @opensans; line-height:1}
-h1{ .font-size(4.8); color:@dark; margin-bottom:40px}
+h1, h2, h3, h4, h5{ font-family: @opensans; line-height:1.25}
+h1{ .font-size(4.8); color:@dark; margin-bottom:30px; line-height:1}
 h2{ .font-size(3.4); color:@orange; margin-bottom:20px}
-h3{ .font-size(2.4); color:@orange; }
+h3{ .font-size(2.4); color:@orange; margin-bottom:15px }
 h4{ .font-size(1.7)}
 h5{ .font-size(1.6)}
 
-p:last-of-type{ margin:0}
+p:last-child,
+ul:last-child
+ol:last-child{ margin:0}
 
 a{ color:@orange}
 a:hover{ color:@orange - 50}
@@ -123,6 +125,11 @@ a.post-edit-link{ position:absolute; top:5px; left:0; background:@grey; color:#f
 a.post-edit-link:hover{ color:#fff; opacity:0.5}
 
 a, input, textarea, .transition{ transition: all 0s ease 0s, all 0.15s ease 0s;}
+
+blockquote{
+	font-family:@opensans; .font-size(2.4); line-height:1.3; padding:0; margin:0;
+	footer{ font-family:georgia; .font-size(1.6); font-style:italic; margin-top:10px}
+}
 
 
 /* ------------------------------ */
@@ -149,21 +156,23 @@ input[type="url"],
 input[type="password"],
 input[type="search"],
 div#user-submitted-posts fieldset input.usp-input.usp-clone,
-textarea { border: 1px solid #c0c0c0; width:100%; padding:3px 10px; font-family:verdana; .font-size(1.3); background:#fff }
-div#user-submitted-posts fieldset input.usp-input.usp-clone,{ padding:3px;}
+textarea { border:1px solid @lightOrange; width:100%; color:@dark; padding:3px 10px; font-family:verdana; .font-size(1.3); background:@lightOrange; }
+textarea{ height:130px}
+div#user-submitted-posts fieldset input.usp-input.usp-clone{ padding:3px;}
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="url"]:focus,
 input[type="password"]:focus,
 input[type="search"]:focus,
-textarea:focus{ border-color:#a7a7a7; box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 0, 0, 0.1)}
+textarea:focus{ border-color:#d8c3a7; box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 0, 0, 0.1)}
 
 .form-item{
 	position:relative; margin-bottom:10px;
 	label{ color:@dark; font-family:verdana; .font-size(1.3); position:absolute; top:4px; left:10px; cursor:text; z-index:2}
 	span.wpcf7-not-valid-tip{ .font-size(1.2)}
 }
+.form-submit{ text-align:center}
 .wpcf7-response-output{ display:none!important}
 
 
@@ -202,12 +211,12 @@ textarea:focus{ border-color:#a7a7a7; box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) 
 /* ------------------------------ */
 
 #text-3{
-	background: #f2e6d6 url(../images/bg-watermark.png) 0 bottom no-repeat; 
-	.textwidget{ background: url(../images/tile-rule.png) right 0 repeat-y; }
+	background: #f2e6d6 url(../images/bg_watermark.png) 0 bottom no-repeat; 
+	.textwidget{ background: url(../images/tile_rule.png) right 0 repeat-y; }
 	form{  padding:35px 30px 50px 30px}
-	input[type="text"], input[type="email"], textarea{ border-color:#f2e6d6; color:@dark; }
+	input[type="text"], input[type="email"], textarea{ background:#fff; }
 	h3.widget-title{ display:none}
-	h3{ color:#fff; .font-size(3.4); text-transform:uppercase; height:200px; padding:110px 0 30px 30px; background: url(../images/bg-quote-header.jpg) no-repeat;}
+	h3{ color:#fff; margin:0; .font-size(3.4); text-transform:uppercase; height:200px; padding:110px 0 30px 30px; background: url(../images/bg_quote_header.jpg) 0 bottom no-repeat; line-height:1}
 }
 
 
@@ -216,9 +225,33 @@ textarea:focus{ border-color:#a7a7a7; box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) 
 
 #gallery-title{
 	background:@orange;
-	h3{ color:#fff; line-height:50px}
+	h3{ color:#fff; line-height:50px; margin:0}
 }
 #gallery-images{ background:@lightOrange; padding:55px 0 65px 0}
+
+.home .the-content h2:last-of-type{ color:@dark; margin-top:105px; position:relative; }
+.home .the-content h2:last-of-type:after{ display:block; content:''; position:absolute; right:-100px; top:-50px; background:url(../images/icons.png) 0 -83px no-repeat; width:137px; height:49px}
+
+#promo-area{
+	padding:70px 0;
+	.content.image .promo-text{ float:left; width:53%}
+	.content.image .promo-image{ float:right; width:40%}
+}
+
+
+/* CONTACT
+/* ------------------------------ */
+
+.page-id-84{
+	.the-content{ 
+		float:right; width:50%; height:300px; background:@lightOrange url(../images/bg_contact.jpg) center bottom no-repeat; background-size: 100% auto;
+		.inner{ padding:30px 30px 0 30px}
+		h2, h3{ text-transform:uppercase;}
+		h2{ margin-bottom:0}
+		p{ margin-bottom:.8em}
+	}
+}
+.acf-map{ float:left; width:50%; height:300px}
 
 
 /* FEEDBACK SECTION
@@ -229,9 +262,7 @@ textarea:focus{ border-color:#a7a7a7; box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) 
 	li{ margin:0; padding:0; list-style:none; color:@light;}
 	li:not(:last-of-type){ margin-bottom:40px;}
 	.feedback-image{ float:left; width:15%; }
-	.feedback-content{ float:right; width:80%}
-	.feedback{ font-family:@opensans; .font-size(2.4); line-height:1.3; margin-bottom:15px}
-	.author{ font-family:georgia; .font-size(1.6); font-style:italic}
+	blockquote{ float:right; width:80%}
 }
 div#user-submitted-posts fieldset label,
 div#user-submitted-posts fieldset input.usp-input,
