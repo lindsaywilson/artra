@@ -38,7 +38,7 @@ function artra_setup() {
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
-	//add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails' );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -102,32 +102,31 @@ add_action( 'widgets_init', 'artra_widgets_init' );
  */
 function artra_scripts() {
 
-	wp_enqueue_script( 'artra-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '', true );
-	
-	wp_enqueue_script( 'artra-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'artra-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-
+	wp_enqueue_script('flexslider', get_template_directory_uri() . '/library/jquery.flexslider-min.js', array('jquery'));
+	wp_enqueue_style('flexslider_css', get_template_directory_uri() . '/library/flexslider.css');
+	wp_enqueue_script('artra-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script('artra-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '', true );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'artra_scripts' );
 
-add_action('init', 'artra_enqueue_styles');
-
-function artra_enqueue_styles() {
+function artra_enqueue_less() {
 	wp_enqueue_style('theme-fonts', get_stylesheet_directory_uri().'/less/fonts.less');
     wp_enqueue_style('theme-main', get_stylesheet_directory_uri().'/less/style.less');
     wp_enqueue_style('theme-extra', get_stylesheet_directory_uri().'/less/artra.less');
 	wp_enqueue_style('theme-responsive', get_stylesheet_directory_uri().'/less/respond.less');
 }
 
+add_action( 'wp_enqueue_scripts', 'artra_scripts' );
+add_action('wp_enqueue_scripts', 'artra_enqueue_less');
+
+
 
 /**
  * Include custom post types
  */
-require_once('home-slider-image-type.php');
+//require_once('home-slider-image-type.php');
 
 
 /**

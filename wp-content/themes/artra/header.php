@@ -22,7 +22,7 @@
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'artra' ); ?></a>
 
-	<header id="masthead" class="site-header width" role="banner">
+	<header id="header" class="site-header width" role="banner">
 		<div class="site-branding">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" /></a></h1>
 		</div>
@@ -46,7 +46,7 @@
 	
 	if(is_front_page()): 
 		
-		print do_shortcode('[flexslider]');
+		include get_template_directory() . '/inc/homepage-slider.php';
 		
 	else:
 		
@@ -59,4 +59,4 @@
     
     <?php endif; ?>
  
-	<div id="content" class="site-content width clear">
+	

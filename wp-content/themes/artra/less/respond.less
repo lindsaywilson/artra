@@ -12,13 +12,14 @@
 
 @media screen and (max-width: 1140px) {
 	
-	/* ------------------------------ */
 	/* MAIN LAYOUT/ELEMENTS
 	/* ------------------------------ */
 
 	.width{ padding-left:30px; padding-right:30px}
 	
-	#social, #ph, .flexslider .caption{ right:30px}
+	#header{
+		#social, #ph, #slider .caption{ right:30px}
+	}
 	
 	#footer { 
 		.grid.third{ width:33.333%}
@@ -27,11 +28,10 @@
 	}
 	
 	
-	/* ------------------------------ */
 	/* PAGE ELEMENTS
 	/* ------------------------------ */
 	
-	.flexslider{
+	#slider{
 		li{ height:400px; background-size:auto 100%;}
 		.caption{ bottom:30px}
 	}
@@ -41,7 +41,6 @@
 
 @media screen and (max-width: 950px) {
 
-	/* ------------------------------ */
 	/* MAIN LAYOUT/ELEMENTS
 	/* ------------------------------ */
 	
@@ -57,14 +56,15 @@
 
 @media screen and (max-width: 700px) {
 	
-	/* ------------------------------ */
 	/* MAIN LAYOUT/ELEMENTS
 	/* ------------------------------ */
 	
 	.grid.third{ width:auto; float:none; margin-bottom:20px}
 	.grid.quarter{ width:50%}
 	
-	#ph{ .font-size(3) }
+	#header{
+		#ph{ .font-size(3) }
+	}
 	
 	#header-image{ height:200px; background-size:auto 100%}
 	
@@ -75,13 +75,20 @@
 	.main-navigation ul { display: none; }
 	
 	
-	/* ------------------------------ */
 	/* PAGE ELEMENTS
 	/* ------------------------------ */
 	
-	.flexslider{
+	/* FLEXSLIDERS */
+	#slider{
 		li{ height:250px}
 		.caption{ .font-size(3); padding:20px 30px}
+	}
+	
+	
+	/* FEEDBACK SECTION */
+	#feedback{
+		.feedback-image{ width:25%; }
+		.feedback-content{ width:70%}
 	}
 	
 }
@@ -89,26 +96,24 @@
 
 @media screen and (max-width: 480px) {
 	
-	/* ------------------------------ */
 	/* MAIN LAYOUT/ELEMENTS
 	/* ------------------------------ */
 	
-	.width{ padding-left:15px; padding-right:15px}
+	.width{ padding-left:15px; padding-right:15px }
 	
-	#masthead{ padding-top:20px; padding-bottom:20px}
-	.site-title img{ max-width:290px}
-	#social{ 
-		position:relative; top:0; right:0; margin-top:15px; 
-		a{ float:none; margin-left:10px}
+	#header{ 
+		padding-top:20px; padding-bottom:20px;
+		.site-title img{ max-width:290px}
+		#social{ 
+			position:relative; top:0; right:0; margin-top:15px; 
+			a{ float:none; margin-left:10px}
+		}
+		#ph{ position:relative; right:0; bottom:0; }
 	}
-	#ph{ position:relative; right:0; bottom:0; }
 	
 	
-	/* ------------------------------ */
 	/* PAGE ELEMENTS
 	/* ------------------------------ */
-	
-	.flexslider{ display:none}
 	
 	#text-3{
 		form{  padding:20px}
@@ -116,3 +121,15 @@
 	}
 	
 }
+
+
+@media screen and (max-width: 320px) {
+
+	/* FEEDBACK SECTION */
+	#feedback{
+		.feedback-image, .feedback-content{ width:auto; float:none }
+		.feedback-image{ margin-bottom:20px}
+	}
+
+}
+

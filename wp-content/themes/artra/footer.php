@@ -8,8 +8,6 @@
  */
 ?>
 
-	</div><!-- #content -->
-
 	<footer id="footer" class="site-footer" role="contentinfo">
     <div class="inner width">
 		<div class="widget clear">

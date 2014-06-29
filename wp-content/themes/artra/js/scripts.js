@@ -1,6 +1,23 @@
 
 jQuery(document).ready(function($) {
 	
+	// Init flexslider
+	
+	$('#slider').flexslider({
+		controlNav: false,
+		directionNav: false
+	});
+	
+	$('#gallery').flexslider({
+		controlNav: false,
+		slideshow: true,
+		animation: "slide",
+		animationLoop: false,
+		itemWidth: 255,
+		itemMargin: 20
+	});
+	
+	
 	// Form labels fadeout
 	
 	$('.form-item label').click( function(){
@@ -22,5 +39,14 @@ jQuery(document).ready(function($) {
 			$(this).parents('.form-item').find('label').fadeIn('fast');
 		}
 	});
+	
+	
+	// Feedback form labels
+	if($('body').hasClass('page-id-64')){
+		$('.usp-title label').text('Name, Company and State');
+		$('.usp-content label').text('Feedback');
+		$('.usp-images label').text('Upload a photo or your companies logo');
+	}
+	
 
 })

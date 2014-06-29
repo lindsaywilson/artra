@@ -37,4 +37,9 @@ get_header(); ?>
 
 </div><!-- #content -->
 
+<?php 
+	// Insert image gallery on front page
+	include get_template_directory() . '/inc/homepage-gallery.php';
+?>
+
 <?php get_footer(); ?>
