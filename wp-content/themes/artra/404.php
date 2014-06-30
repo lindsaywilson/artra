@@ -18,9 +18,11 @@ get_header(); ?>
 				</header><!-- .page-header -->
 
 				<div class="page-content">
-					<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'artra' ); ?></p>
+					<p><?php _e( 'It looks like nothing was found at this location. Try a search?', 'artra' ); ?></p>
 
 					<?php get_search_form(); ?>
+                    
+                    <!--
 
 					<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
 
@@ -48,6 +50,7 @@ get_header(); ?>
 					?>
 
 					<?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
+                    -->
 
 				</div><!-- .page-content -->
 			</section><!-- .error-404 -->

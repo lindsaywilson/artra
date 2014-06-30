@@ -174,3 +174,25 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+/**
+ * Add site-specific Open Graph protocol customizations to the Facebook plugin
+ *
+ * @param array $meta_tags an associative array of Open Graph protocol properties with keys expressed as full IRIs
+ * @return array plugin default values with site-specific customizations
+ */
+function default_og_img( $meta_tags ) {
+	if(!isset($meta_tags['http://ogp.me/ns#image']))
+		$meta_tags['http://ogp.me/ns#image'][] = array(
+			'url' => get_template_directory_uri() .'/images/feature_image.jpg',
+			'type' => 'image/png',
+			'width' => 1920,
+			'height' => 300
+		);
+	if (!isset( $meta_tags['http://ogp.me/ns#description']))
+		$meta_tags['http://ogp.me/ns#description'] = 'The smart choice in kitchens and cabinetry in Western Australia... Do it once. Do it right';
+		
+	return $meta_tags;
+}
+add_filter( 'fb_meta_tags', 'default_og_img' );
