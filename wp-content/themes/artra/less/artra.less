@@ -36,15 +36,16 @@ body{ font-family:verdana; color:@text; .font-size(1.6)}
 #header { 
 	padding-top: 30px; padding-bottom:30px;
 	h1{ margin:0; padding:0}
-	h1 a{ background: url(../images/logo.png); width: 298px; height: 110px; display: block; text-indent: -999em;}
+	h1 a{ background: url(images/logo.png); width: 298px; height: 110px; display: block; text-indent: -999em;}
 	#social{ 
 		position:absolute; top:40px; right:0;
-		a{ float:left; margin-left:10px}
-		a:hover{ opacity:0.5}
-		a:before{ display:inline-block; content:''; width:30px; height:30px; background:url(../images/icons.png)}
-		a.facebook:before{ background-position:0 0}
-		a.gplus:before{ background-position:-40px 0}
-		a.twitter:before{ background-position:-80px 0}
+		a{ float:left; margin-left:10px; text-decoration:none}
+		a:hover{ opacity:0.6}
+		a:before{ color:#fff; background:#777; border-radius:999em; width:30px; height:30px; margin:0; line-height:29px}
+		a.icon-facebook:before{ font-size:1.4em}
+		a.icon-twitter:before{ font-size:1.4em}
+		a.icon-gplus:before{ font-size:1.2em}
+		a.icon-linkedin:before{ font-size:.9em}
 	}
 	#ph{ font-family:@opensans; .font-size(4.8); color:@orange; position:absolute; right:0; bottom:25px; line-height:1 }	
 }
@@ -52,13 +53,13 @@ body{ font-family:verdana; color:@text; .font-size(1.6)}
 #header-image{ height:300px; background:center 0 no-repeat;}
 
 #footer { 
-	background: @orange url(../images/footer_watermark.png) no-repeat 85% 0; color:#fff; .font-size(1.2); padding:30px 0;
+	background: @orange url(images/footer_watermark.png) no-repeat 85% 0; color:#fff; .font-size(1.2); padding:30px 0;
 	a{ color:#fff}
 	h3{ .font-size(3.4); font-family:@opensans; color:#fff; margin-bottom:20px }
 	ul{ margin:0 0 0 12px}
 	.grid.third{ width:auto}
 	.copy{ position:absolute; right:0; bottom:0}
-	.cyberstart{ background:url(../images/icons.png) 0 -39px; display:block; position:absolute; top:0; right:0; width:137px; height:43px;}
+	.cyberstart{ background:url(images/icons.png) 0 -39px; display:block; position:absolute; top:0; right:0; width:137px; height:43px;}
 }
 
 
@@ -67,7 +68,7 @@ body{ font-family:verdana; color:@text; .font-size(1.6)}
 .content-area{ float: left; margin: 0 -32% 0 0; width: 100%;}
 .site-main{ 
 	margin: 0 32% 0 0;
-	.page{ padding-right:70px;}
+	.page, .no-results{ padding-right:70px;}
 }
 .site-content .widget-area{ float: right; overflow: hidden; width: 32%;}
 
@@ -89,17 +90,21 @@ body{ font-family:verdana; color:@text; .font-size(1.6)}
 	.icon-menu:before{ .font-size(1.7); top:-2px; position:relative; width:1.55em}
 	ul{ list-style: none; margin: 0; padding-left: 0;}
 	li{ float: left; position: relative; }
-	a{ color: #fff; text-decoration: none; padding:0 30px 0 0; display:block; text-decoration: none;}
+	a{ color: #fff; text-decoration: none; padding:0 15px; display:block; text-decoration: none;}
+	ul#menu-main-menu > li:first-child a{ padding-left:0}
 	a:hover{ color:@dark}
-	ul ul{ float: left; position: absolute; top:100%; left: -999em; z-index: 99999; background:@orange; line-height:1; .font-size(2)}
+	ul ul{ float: left; position: absolute; top:100%; left: -999em; z-index: 99999; background:@orange; line-height:1; .font-size(2); }
 	ul ul ul{ left: -999em; top: 0; }
-	ul ul a{ width: 200px; padding:15px 20px 0 20px}
+	ul ul a{ width: 200px; padding:15px 15px 0 15px}
 	ul ul li:last-of-type a{ padding-bottom:15px}
-	ul li:hover > ul{ left: -20px;}
+	ul li:hover > ul{ left: 0;}
 	ul ul li:hover > ul{ left: 100%;}
 	.current_page_ancestor > a,
 	.current_page_item > a,
-	.current-menu-item a{ color:@dark}
+	.current-menu-item > a{ color:@dark}
+	.collapser{ display:none; position:absolute; right:0; top:0; padding:0 30px 0 10px; cursor:pointer; color:@orange; .font-size(2.1)}
+	.collapser:hover{ color:@dark}
+	.collapser i[class^="icon-"]:before, .collapser i[class*=" icon-"]:before{ margin:0}
 }
 
 
@@ -157,7 +162,7 @@ input[type="url"],
 input[type="password"],
 input[type="search"],
 div#user-submitted-posts fieldset input.usp-input.usp-clone,
-textarea { border:1px solid @lightOrange; width:100%; color:@dark; padding:3px 10px; font-family:verdana; .font-size(1.3); background:@lightOrange; }
+textarea { border:1px solid @lightOrange; width:100%; color:@dark; padding:3px 10px; font-family:verdana; .font-size(1.3); background:@lightOrange; outline: none; }
 textarea{ height:130px}
 div#user-submitted-posts fieldset input.usp-input.usp-clone{ padding:3px;}
 
@@ -189,10 +194,10 @@ textarea:focus{ border-color:#d8c3a7; box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) 
 	border:none; box-shadow:none; margin:0; background:none;
 	.flex-direction-nav .flex-next{ right:0}
 	.flex-direction-nav .flex-prev{ left:0}
-	.flex-direction-nav a { color: @orange; margin: 0;opacity: 1; overflow: hidden; position: absolute; text-decoration: none; text-shadow: none; width: 20px; height:20px; background:@orange; border-radius:99em;  }
-	.flex-direction-nav a:before{ font-family:'fontello'; color:@lightOrange; font-size:18px; position:relative; bottom:2px }
-	.flex-direction-nav a.flex-prev:before{ content: '\e802'; left:4px;}
-	.flex-direction-nav a.flex-next:before{ content: '\e801'; right:4px}
+	.flex-direction-nav a { color: @orange; margin: 0;opacity: 1; overflow: hidden; position: absolute; text-decoration: none; text-shadow: none; width: 21px; height:21px; background:@orange; border-radius:99em;  }
+	.flex-direction-nav a:before{ font-family:'fontello'; color:@lightOrange; font-size:13px; position:relative; bottom:3px }
+	.flex-direction-nav a.flex-prev:before{ content: '\e801'; left:5px;}
+	.flex-direction-nav a.flex-next:before{ content: '\e802'; right:5px}
 }
 .flexslider:hover .flex-prev, .flexslider:hover .flex-next{ opacity:1}
 
@@ -212,32 +217,32 @@ textarea:focus{ border-color:#d8c3a7; box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) 
 /* ------------------------------ */
 
 #text-3{
-	background: #f2e6d6 url(../images/bg_watermark.png) 0 bottom no-repeat; 
-	.textwidget{ background: url(../images/tile_rule.png) right 0 repeat-y; }
+	background: #f2e6d6 url(images/bg_watermark.png) 0 bottom no-repeat; 
+	.textwidget{ background: url(images/tile_rule.png) right 0 repeat-y; }
 	form{  padding:35px 30px 50px 30px}
 	input[type="text"], input[type="email"], textarea{ background:#fff; }
 	h3.widget-title{ display:none}
-	h3{ color:#fff; margin:0; .font-size(3.4); text-transform:uppercase; height:200px; padding:110px 0 30px 30px; background: url(../images/bg_quote_header.jpg) 0 bottom no-repeat; line-height:1}
+	h3{ color:#fff; margin:0; .font-size(3.4); text-transform:uppercase; height:200px; padding:110px 0 30px 30px; background: url(images/bg_quote_header.jpg) 0 bottom no-repeat; background-size:auto 100%; line-height:1}
 }
 
 
 /* HOMEPAGE
 /* ------------------------------ */
 
-#gallery-title{
+.title-block{
 	background:@orange;
 	h3{ color:#fff; line-height:50px; margin:0}
 }
 #gallery-images{ background:@lightOrange; padding:55px 0 65px 0}
 
 .home .the-content h2:last-of-type{ color:@dark; margin-top:90px; position:relative; }
-.home .the-content h2:last-of-type:after{ display:block; content:''; position:absolute; right:-100px; top:-50px; background:url(../images/icons.png) 0 -83px no-repeat; width:137px; height:49px}
+.home .the-content h2:last-of-type:after{ display:block; content:''; position:absolute; right:-100px; top:-50px; background:url(images/icons.png) 0 -83px no-repeat; width:137px; height:49px}
 
-#promo-area{
-	padding:70px 0;
-	.promo-image{ text-align:center}
-	.content.image .promo-text{ float:left; width:53%}
-	.content.image .promo-image{ float:right; width:40%}
+.extra-block{
+	.with-content, .with-image{ padding-top:70px; padding-bottom:70px}
+	.image{ text-align:center}
+	.with-content.with-image .content{ float:left; width:53%}
+	.with-content.with-image .image{ float:right; width:40%}
 }
 
 
@@ -246,7 +251,7 @@ textarea:focus{ border-color:#d8c3a7; box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) 
 
 .page-id-84{
 	.the-content{ 
-		float:right; width:50%; height:300px; background:@lightOrange url(../images/bg_contact.jpg) center bottom no-repeat; background-size: 100% auto;
+		float:right; width:50%; height:300px; background:@lightOrange url(images/bg_contact.jpg) center bottom no-repeat; background-size: 100% auto;
 		.inner{ padding:30px 30px 0 30px}
 		h2, h3{ text-transform:uppercase;}
 		h2{ margin-bottom:0}

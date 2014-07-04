@@ -42,7 +42,7 @@ get_header(); ?>
 	include get_template_directory() . '/inc/homepage-gallery.php';
 	
 	// Insert Promo Area Content
-	include get_template_directory() . '/inc/homepage-promo.php';
+	include get_template_directory() . '/inc/homepage-extra-blocks.php';
 ?>
 
 <?php get_footer(); ?>

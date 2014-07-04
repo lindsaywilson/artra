@@ -327,8 +327,8 @@ function usp_createPublicSubmission($title, $content, $authorName, $authorID, $a
 		if ($usp_options['usp_email_alerts'] == true) {
 			$to = $usp_options['usp_email_address'];
 			if ($to !== '') {
-				$subject = 'New user-submitted post!';
-				$message = 'Hey, there is a new user-submitted post waiting for you.';
+				$subject = 'New feedback has been added to your site';
+				$message = 'There is a new feedback post awaiting your approval. http://'.$_SERVER['HTTP_HOST'].'/wp-admin/post.php?post='.$newPost.'&action=edit' ;
 				wp_mail($to, $subject, $message);
 			}
 		}

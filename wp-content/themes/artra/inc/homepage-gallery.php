@@ -16,7 +16,7 @@ $images = get_field('gallery_images');
 
 if($title): ?>
 
-<div id="gallery-title">
+<div class="title-block">
 	<div class="width">
     	<h3><?php print $title ?></h3>
     </div>

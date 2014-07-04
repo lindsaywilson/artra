@@ -17,11 +17,24 @@ jQuery(document).ready(function($) {
 		resizeTimer = setTimeout(function() { LAYOUT.timerResize(); }, 100);
 	});
 	
+	// Open external links in a new window
+	$('a[rel*=external]').click(function(){
+		window.open($(this).attr('href'));
+		return false; 
+	});
+	
 	// Mobile Nav toggle
 	// Click on Mobile Nav Toggle
 	$('.menu-toggle').click(function(){
 		MOBILE.toggleNav();
 		return false;
+	});
+	
+	// Mobile Menu
+	$('#menu-main-menu li.menu-item-has-children').prepend('<span class="collapser"><i class="icon-down-open"></i></span>');
+	$('#menu-main-menu .collapser').click( function(){
+		$(this).siblings('ul').slideToggle('fast');
+		$(this).children('i').toggleClass('icon-up-open').toggleClass('icon-down-open')
 	});
 	
 	// Init flexslider
@@ -226,7 +239,7 @@ jQuery(document).ready(function($) {
     };
 	
     LAYOUT.checkMobile = function (){
-        // Define if on mobile (based on CCS media Queries : Device < 700px wide)
+        // Define if on mobile (based on CCS media Queries : Device < 800px wide)
         if ( jQuery("#page").css("position") === 'relative') {
 			if( window.isMobile ){
                 window.deviceHasChanged = false;
@@ -267,9 +280,10 @@ jQuery(document).ready(function($) {
     };
     MOBILE.showNav = function (){
 		jQuery('.menu').show();
-        jQuery('.mobile_toggle').removeClass('close').addClass('open');
+        jQuery('.mobile_toggle').removeClass('icon-cancel').addClass('icon-menu');
+		jQuery('#menu-main-menu ul').removeAttr('style');
     };
     MOBILE.hideNav = function (){
 		jQuery('.menu').hide();
-		jQuery('.menu-toggle').removeClass('close').addClass('open');
+		jQuery('.menu-toggle').removeClass('icon-cancel').addClass('icon-menu');
     };

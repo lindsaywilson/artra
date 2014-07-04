@@ -3,3 +3,6 @@ wp-config.php
 
 # Ignore paths that contain user-generated content.
 wp-content/uploads
+
+# Ignore grunt/node setup
+wp-content/themes/artra/node_modules

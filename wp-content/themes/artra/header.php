@@ -16,6 +16,9 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
 <?php wp_head(); ?>
+
+<?php include get_template_directory(). '/inc/opengraph.php'; ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -27,9 +30,25 @@
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" /></a></h1>
 		</div>
         <div id="social">
-        	<a class="facebook" href="" title="facebook"></a>
-            <a class="gplus" href="" title="gplus"></a>
-            <a class="twitter" href="" title="twitter"></a>
+        	<?php
+				$facebook = get_field('facebook', 'option');
+				$googleplus = get_field('googleplus', 'option');
+				$linkedin = get_field('linkedin', 'option');
+				$twitter = get_field('twitter', 'option');
+				
+				if($facebook):
+			?>
+        		<a class="icon-facebook" href="<?php print $facebook ?>" rel="external" title="facebook"></a>
+            <?php endif; 
+			if($twitter): ?>
+            	<a class="icon-twitter" href="<?php print $twitter ?>" rel="external" title="twitter"></a>
+			<?php endif; 
+			if($googleplus): ?>
+            	<a class="icon-gplus" href="<?php print $googleplus ?>" rel="external" title="gplus"></a>
+            <?php endif; 
+			if($linkedin): ?>
+            	<a class="icon-linkedin" href="<?php print $linkedin ?>" rel="external" title="linkedin"></a>
+            <?php endif; ?>
         </div>
         <div id="ph" class="icon-phone-squared">0488 441 910</div>
 
@@ -44,22 +63,11 @@
     
     <?php 
 	
-	if(is_front_page()): 
-		
-		include get_template_directory(). '/inc/homepage-slider.php';
-		
+	if(is_front_page()): 	
+		include get_template_directory(). '/inc/homepage-slider.php';	
 	else:
-		$thumb_id = get_post_thumbnail_id();
-		if($thumb_id == ''){
-			$thumb_url = get_template_directory_uri().'/images/feature_image.jpg';
-		} else{
-			$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-			$thumb_url = $thumb_url_array[0];	
-		}
 	?>
-    
     	<div id="header-image" style="background-image:url(<?php print $thumb_url; ?>);"></div>
-    
     <?php endif; ?>
  
 	
