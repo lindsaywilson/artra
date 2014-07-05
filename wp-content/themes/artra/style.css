@@ -1605,10 +1605,7 @@ div.usp-input-error {
     top: 0;
     right: 0;
     margin-top: 15px;
-  }
-  #header #social a {
-    float: none;
-    margin-left: 10px;
+    margin-bottom: 10px;
   }
   #header #ph {
     position: relative;

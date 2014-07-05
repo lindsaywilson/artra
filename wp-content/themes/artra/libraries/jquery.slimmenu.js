@@ -5,6 +5,11 @@
  * Copyright 2013, Adnan Topal (atopal.com)
  * Licensed under the MIT license.
  */
+ 
+/*
+* THIS HAS BEEN CUSTOMISED FROM ORIGINAL PLUGIN, DO NOT OVERWRITE
+*/ 
+ 
 ;(function ( $, window, document, undefined )
 {
     var pluginName = "slimmenu",
@@ -61,6 +66,11 @@
             {
                 e.preventDefault();
                 $menu.slideToggle($options.animSpeed, $options.easingEffect);
+				if($menu_collapser.hasClass('expanded')){
+					$menu_collapser.removeClass('expanded')
+				}else{
+					$menu_collapser.addClass('expanded')
+				}
             });
 
             this.resizeMenu({ data: { el: this.element, options: this.options } });

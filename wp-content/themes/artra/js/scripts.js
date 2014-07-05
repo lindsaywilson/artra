@@ -14,13 +14,6 @@ jQuery(document).ready(function($) {
 		resizeWidth: '800',
 		animSpeed: 100
 	});
-	$('.menu-collapser').click( function(){
-		if($(this).hasClass('expanded')){
-			$(this).removeClass('expanded');
-		}else{
-			$(this).addClass('expanded');
-		}
-	});
 	
 	// Init flexslider
 	$('#slider').flexslider({
