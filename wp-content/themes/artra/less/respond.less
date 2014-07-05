@@ -48,20 +48,6 @@
 }
 
 
-@media only screen and (min-width: 1024px) and (max-width: 1024px) {
-
-	/* NAVIGATION
-	/* ------------------------------ */
-
-	.main-navigation {
-		li.menu-item-has-children{ padding-right:40px}
-		.collapser{ display:block; color:#fff; padding-right:20px}
-		ul ul .collapser{ padding:15px 20px 15px 10px}
-	}
-
-}
-
-
 @media screen and (max-width: 950px) {
 
 	/* MAIN LAYOUT/ELEMENTS
@@ -111,25 +97,33 @@
 	/* ------------------------------ */
 
 	.main-navigation {
-		line-height:1.5;
+		line-height:44px;
 		.width{ padding:0}
-		.menu-toggle{ display:block; line-height:2}
-		ul{ padding-bottom:0; background:@lightOrange; border-bottom:4px solid @orange}
-		li{ float: none; border-bottom:1px solid @orange  }
-		li:last-of-type{ border-bottom:none}
-		ul a{ padding:0 30px; color:@orange }
+		
+		.menu-collapser{ position:relative}
+		.collapse-button { cursor:pointer; text-align:center}
+		.collapse-button i{ font-style:normal}
+		.icon-menu:before{ .font-size(1.7); top:-2px; position:relative; width:1.55em}
+		.expanded .icon-menu:before{ content: '\e804'; font-size: 2.2rem; top: 0; width: 1.1em;}
+		
+		ul li .sub-collapser { position: absolute; right: 0; top: 0; height: 100%; z-index: 99; cursor: pointer; padding:0 15px; color:@orange; .font-size(2.1); height:100%; background:@lightOrange; text-align:center; width:15%}
+		ul li .sub-collapser:before { content: '\e808'; display: inline-block; height: 100%; vertical-align: middle; font-family:'fontello'}
+		ul li .sub-collapser > i { display: inline-block; vertical-align: middle; }
+		ul li .sub-collapser.expanded{ height:44px}  
+		ul li .sub-collapser.expanded:before{ content: '\e809';}
+		
+		ul{ padding-bottom:0; background:@orange; display:none; border-top:1px solid @dark;}
+		ul li{ float: none; border-bottom:1px solid @dark  }
+		ul li:last-of-type{ border-bottom:none}
+		ul li a{ padding:0 30px; }
 		ul#menu-main-menu > li:first-child a{ padding-left:30px}
-		ul ul{ float: none; position: relative; left:0; z-index: 99999; padding:0; display:none; background:@lightOrange; border-top:1px solid @orange; line-height:2; border-bottom:none  }
-		ul ul ul{ left:0; }
-		ul ul a{ width: auto; padding:0 30px 0 40px}
+		ul ul{ float: none; position: relative; left:0; z-index: 99999; padding:0; display:none; background:@lightOrange; border-bottom:none; width:100%; line-height:44px  }
+		ul ul a{ width: auto; padding:0 30px 0 30px; color:@orange }
 		ul ul li:last-of-type a{ padding-bottom:0}
-		ul ul ul a{ padding-left:50px}
-		ul li:hover > ul{ left:0;}
-		ul ul li:hover > ul{ left:0;}
+		ul ul ul{ left:0}
+		ul ul ul a{ padding-left:40px}
 		.collapser{ display:block;}
 	}
-	.main-navigation.open .menu {display: block; }
-	.main-navigation .menu { display: none; }
 	
 	
 	/* PAGE ELEMENTS

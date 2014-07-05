@@ -869,89 +869,62 @@ body {
   display: block;
   line-height: 2;
 }
-.main-navigation .menu-toggle {
-  display: none;
-  cursor: pointer;
-  text-align: center;
-}
-.main-navigation .icon-menu:before {
-  font-size: 17px;
-  font-size: 1.7rem;
-  top: -2px;
-  position: relative;
-  width: 1.55em;
-}
 .main-navigation ul {
   list-style: none;
   margin: 0;
   padding-left: 0;
+  background: #ba5317;
 }
-.main-navigation li {
+.main-navigation ul li {
   float: left;
   position: relative;
 }
-.main-navigation a {
+.main-navigation ul li a {
   color: #fff;
   padding: 0 15px;
   display: block;
   text-decoration: none;
+  position: relative;
+}
+.main-navigation ul li a:hover {
+  color: #582d15;
 }
 .main-navigation ul#menu-main-menu > li:first-child a {
   padding-left: 0;
 }
-.main-navigation a:hover {
-  color: #582d15;
-}
 .main-navigation ul ul {
-  float: left;
   position: absolute;
   top: 100%;
-  left: -999em;
+  left: 0;
   z-index: 99999;
   background: #ba5317;
   line-height: 1;
   font-size: 20px;
   font-size: 2rem;
+  display: none;
+  width: 220px;
 }
-.main-navigation ul ul ul {
-  left: -999em;
-  top: 0;
+.main-navigation ul ul li {
+  float: none;
 }
 .main-navigation ul ul a {
-  width: 200px;
   padding: 15px 15px 0 15px;
 }
 .main-navigation ul ul li:last-of-type a {
   padding-bottom: 15px;
 }
-.main-navigation ul li:hover > ul {
-  left: 0;
-}
-.main-navigation ul ul li:hover > ul {
+.main-navigation ul ul ul {
   left: 100%;
+  top: 0;
+}
+.main-navigation ul.collapsed li > ul {
+  display: none;
+  position: static;
 }
 .main-navigation .current_page_ancestor > a,
 .main-navigation .current_page_item > a,
 .main-navigation .current-menu-item > a {
   color: #582d15;
-}
-.main-navigation .collapser {
-  display: none;
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 0 30px 0 10px;
-  cursor: pointer;
-  color: #ba5317;
-  font-size: 21px;
-  font-size: 2.1rem;
-}
-.main-navigation .collapser:hover {
-  color: #582d15;
-}
-.main-navigation .collapser i[class^="icon-"]:before,
-.main-navigation .collapser i[class*=" icon-"]:before {
-  margin: 0;
 }
 /* ------------------------------ */
 /* ELEMENTS/TYPOGRAPHY
@@ -1402,21 +1375,6 @@ div.usp-input-error {
     bottom: 30px;
   }
 }
-@media only screen and (min-width: 1024px) and (max-width: 1024px) {
-  /* NAVIGATION
-	/* ------------------------------ */
-  .main-navigation li.menu-item-has-children {
-    padding-right: 40px;
-  }
-  .main-navigation .collapser {
-    display: block;
-    color: #fff;
-    padding-right: 20px;
-  }
-  .main-navigation ul ul .collapser {
-    padding: 15px 20px 15px 10px;
-  }
-}
 @media screen and (max-width: 950px) {
   /* MAIN LAYOUT/ELEMENTS
 	/* ------------------------------ */
@@ -1478,30 +1436,81 @@ div.usp-input-error {
   /* NAVIGATION
 	/* ------------------------------ */
   .main-navigation {
-    line-height: 1.5;
+    line-height: 44px;
   }
   .main-navigation .width {
     padding: 0;
   }
-  .main-navigation .menu-toggle {
-    display: block;
-    line-height: 2;
+  .main-navigation .menu-collapser {
+    position: relative;
+  }
+  .main-navigation .collapse-button {
+    cursor: pointer;
+    text-align: center;
+  }
+  .main-navigation .collapse-button i {
+    font-style: normal;
+  }
+  .main-navigation .icon-menu:before {
+    font-size: 17px;
+    font-size: 1.7rem;
+    top: -2px;
+    position: relative;
+    width: 1.55em;
+  }
+  .main-navigation .expanded .icon-menu:before {
+    content: '\e804';
+    font-size: 2.2rem;
+    top: 0;
+    width: 1.1em;
+  }
+  .main-navigation ul li .sub-collapser {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 99;
+    cursor: pointer;
+    padding: 0 15px;
+    color: #ba5317;
+    font-size: 21px;
+    font-size: 2.1rem;
+    height: 100%;
+    background: #f2e6d6;
+    text-align: center;
+    width: 15%;
+  }
+  .main-navigation ul li .sub-collapser:before {
+    content: '\e808';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    font-family: 'fontello';
+  }
+  .main-navigation ul li .sub-collapser > i {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .main-navigation ul li .sub-collapser.expanded {
+    height: 44px;
+  }
+  .main-navigation ul li .sub-collapser.expanded:before {
+    content: '\e809';
   }
   .main-navigation ul {
     padding-bottom: 0;
-    background: #f2e6d6;
-    border-bottom: 4px solid #ba5317;
+    background: #ba5317;
+    display: none;
+    border-top: 1px solid #582d15;
   }
-  .main-navigation li {
+  .main-navigation ul li {
     float: none;
-    border-bottom: 1px solid #ba5317;
+    border-bottom: 1px solid #582d15;
   }
-  .main-navigation li:last-of-type {
+  .main-navigation ul li:last-of-type {
     border-bottom: none;
   }
-  .main-navigation ul a {
+  .main-navigation ul li a {
     padding: 0 30px;
-    color: #ba5317;
   }
   .main-navigation ul#menu-main-menu > li:first-child a {
     padding-left: 30px;
@@ -1514,37 +1523,26 @@ div.usp-input-error {
     padding: 0;
     display: none;
     background: #f2e6d6;
-    border-top: 1px solid #ba5317;
-    line-height: 2;
     border-bottom: none;
-  }
-  .main-navigation ul ul ul {
-    left: 0;
+    width: 100%;
+    line-height: 44px;
   }
   .main-navigation ul ul a {
     width: auto;
-    padding: 0 30px 0 40px;
+    padding: 0 30px 0 30px;
+    color: #ba5317;
   }
   .main-navigation ul ul li:last-of-type a {
     padding-bottom: 0;
   }
+  .main-navigation ul ul ul {
+    left: 0;
+  }
   .main-navigation ul ul ul a {
-    padding-left: 50px;
-  }
-  .main-navigation ul li:hover > ul {
-    left: 0;
-  }
-  .main-navigation ul ul li:hover > ul {
-    left: 0;
+    padding-left: 40px;
   }
   .main-navigation .collapser {
     display: block;
-  }
-  .main-navigation.open .menu {
-    display: block;
-  }
-  .main-navigation .menu {
-    display: none;
   }
   /* PAGE ELEMENTS
 	/* ------------------------------ */

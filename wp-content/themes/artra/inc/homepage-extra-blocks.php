@@ -11,16 +11,11 @@ if( have_rows('extra_content_blocks') ):
 	$content = get_sub_field('content'); 
 	$image = get_sub_field('image'); 
 	$background = get_sub_field('background_color'); 
-	if($background == 'white' ){
-		$color = '#fff';
-	} else{
-		$color = '#f2e6d6';
-	}
 	
 	?>
  
 
-<div class="extra-block" style="background-color:<?php print $color; ?>">
+<div class="extra-block" style="background-color:<?php print $background; ?>">
 	<?php if($title): ?>
     <div class="title-block">
         <div class="width">

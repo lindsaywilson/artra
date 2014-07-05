@@ -106,8 +106,7 @@ function artra_scripts() {
 	wp_enqueue_script('gmap', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), '', true );
 	wp_enqueue_script('flexslider', get_template_directory_uri() . '/libraries/jquery.flexslider-min.js', array('jquery'));
 	wp_enqueue_style('flexslider_css', get_template_directory_uri() . '/libraries/flexslider.css');
-	wp_enqueue_script('slimmenu', get_template_directory_uri() . '/libraries/jquery.slimmenu.min.js', array('jquery'));
-	wp_enqueue_style('slimmenu_css', get_template_directory_uri() . '/libraries/slimmenu.css');
+	wp_enqueue_script('slimmenu', get_template_directory_uri() . '/libraries/jquery.slimmenu.js', array('jquery'));
 	wp_enqueue_script('artra-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 	wp_enqueue_style('theme-main', get_stylesheet_directory_uri().'/style.css');
 	wp_enqueue_script('artra-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '', true );

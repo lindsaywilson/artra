@@ -1,40 +1,25 @@
 
 jQuery(document).ready(function($) {
 
-
-	// GLOBAL SCRIPTS
-	
-	// Define Global Mobile
-	window.isMobile = false;
-	window.deviceHasChanged = false;
-	LAYOUT.checkMobile;
-	
-	// Define if on mobile (based on CCS media Queries : Device < 960px wide)
-	var resizeTimer;
-	LAYOUT.timerResize();
-	$(window).resize(function() {
-		clearTimeout(resizeTimer);
-		resizeTimer = setTimeout(function() { LAYOUT.timerResize(); }, 100);
-	});
 	
 	// Open external links in a new window
 	$('a[rel*=external]').click(function(){
 		window.open($(this).attr('href'));
 		return false; 
 	});
+
 	
-	// Mobile Nav toggle
-	// Click on Mobile Nav Toggle
-	$('.menu-toggle').click(function(){
-		MOBILE.toggleNav();
-		return false;
+	// SlimMenu
+	$('#menu-main-menu').slimmenu({
+		resizeWidth: '800',
+		animSpeed: 100
 	});
-	
-	// Mobile Menu
-	$('#menu-main-menu li.menu-item-has-children').prepend('<span class="collapser"><i class="icon-down-open"></i></span>');
-	$('#menu-main-menu .collapser').click( function(){
-		$(this).siblings('ul').slideToggle('fast');
-		$(this).children('i').toggleClass('icon-up-open').toggleClass('icon-down-open')
+	$('.menu-collapser').click( function(){
+		if($(this).hasClass('expanded')){
+			$(this).removeClass('expanded');
+		}else{
+			$(this).addClass('expanded');
+		}
 	});
 	
 	// Init flexslider
@@ -75,14 +60,7 @@ jQuery(document).ready(function($) {
 			$(this).parents('.form-item').find('label').fadeIn('fast');
 		}
 	});
-	
-	
-	// Feedback form labels
-	if($('body').hasClass('page-id-64')){
-		$('.usp-title label').text('Name, Company and State');
-		$('.usp-content label').text('Feedback');
-		$('.usp-images label').text('Upload your logo');
-	}
+
 	
 	
 	/*
@@ -220,70 +198,3 @@ jQuery(document).ready(function($) {
 
 })
 
-
-
-	// ---------------------
-	// LAYOUT
-	// ---------------------
-	
-    var LAYOUT = {};
-    LAYOUT.timerResize = function(){
-        
-        // Define if mobile
-        this.checkMobile();
-
-        // Display navigation if not mobile
-        if(!window.isMobile){
-            MOBILE.showNav();
-        }
-    };
-	
-    LAYOUT.checkMobile = function (){
-        // Define if on mobile (based on CCS media Queries : Device < 800px wide)
-        if ( jQuery("#page").css("position") === 'relative') {
-			if( window.isMobile ){
-                window.deviceHasChanged = false;
-            }else{
-               window.deviceHasChanged = true; 
-               window.isMobile = true;
-			   MOBILE.hideNav();
-            }  
-        }else{
-            if( !window.isMobile ){
-                window.deviceHasChanged = false;
-            }else{
-                window.deviceHasChanged = true;
-                window.isMobile = false;
-				MOBILE.showNav();
-            }
-        }
-    };
-	
-	
-	// ---------------------
-	// MOBILE
-	// ---------------------
-	
-    var MOBILE = {};
-    MOBILE.toggleNav = function (){
-		var nav = jQuery('.menu');
-		var button = jQuery('.menu-toggle');
-        if (button.hasClass('icon-menu')){
-            button.addClass('icon-cancel');
-			button.removeClass('icon-menu');
-			nav.slideDown("fast");
-        }else{
-			button.addClass('icon-menu');
-			button.removeClass('icon-cancel');
-            nav.slideUp("fast"); 
-        }
-    };
-    MOBILE.showNav = function (){
-		jQuery('.menu').show();
-        jQuery('.mobile_toggle').removeClass('icon-cancel').addClass('icon-menu');
-		jQuery('#menu-main-menu ul').removeAttr('style');
-    };
-    MOBILE.hideNav = function (){
-		jQuery('.menu').hide();
-		jQuery('.menu-toggle').removeClass('icon-cancel').addClass('icon-menu');
-    };

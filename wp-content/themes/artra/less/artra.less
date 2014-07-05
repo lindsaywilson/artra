@@ -86,25 +86,22 @@ body{ font-family:verdana; color:@text; .font-size(1.6)}
 
 .main-navigation {	
 	background: @orange; color:#fff; .font-size(2.4); font-family:@opensans; clear:both; display:block; line-height:2;
-	.menu-toggle { display: none; cursor:pointer; text-align:center}
-	.icon-menu:before{ .font-size(1.7); top:-2px; position:relative; width:1.55em}
-	ul{ list-style: none; margin: 0; padding-left: 0;}
-	li{ float: left; position: relative; }
-	a{ color: #fff; text-decoration: none; padding:0 15px; display:block; text-decoration: none;}
+	
+	ul{ list-style: none; margin: 0; padding-left: 0; background:@orange}
+	ul li{ float: left; position: relative; }
+	ul li a{ color: #fff; text-decoration: none; padding:0 15px; display:block; text-decoration: none; position:relative}
+	ul li a:hover{ color:@dark}
 	ul#menu-main-menu > li:first-child a{ padding-left:0}
-	a:hover{ color:@dark}
-	ul ul{ float: left; position: absolute; top:100%; left: -999em; z-index: 99999; background:@orange; line-height:1; .font-size(2); }
-	ul ul ul{ left: -999em; top: 0; }
-	ul ul a{ width: 200px; padding:15px 15px 0 15px}
+	ul ul{ display:none; position: absolute; top:100%; left: 0; z-index: 99999; background:@orange; line-height:1; .font-size(2); display:none; width:220px }
+	ul ul li{ float:none}
+	ul ul a{ padding:15px 15px 0 15px}
 	ul ul li:last-of-type a{ padding-bottom:15px}
-	ul li:hover > ul{ left: 0;}
-	ul ul li:hover > ul{ left: 100%;}
+	ul ul ul{ left: 100%; top: 0;}
+	ul.collapsed li > ul { display: none; position: static;}
+	
 	.current_page_ancestor > a,
 	.current_page_item > a,
 	.current-menu-item > a{ color:@dark}
-	.collapser{ display:none; position:absolute; right:0; top:0; padding:0 30px 0 10px; cursor:pointer; color:@orange; .font-size(2.1)}
-	.collapser:hover{ color:@dark}
-	.collapser i[class^="icon-"]:before, .collapser i[class*=" icon-"]:before{ margin:0}
 }
 
 

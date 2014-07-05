@@ -56,7 +56,6 @@
     
     <nav id="site-navigation" class="main-navigation" role="navigation">
     <div class="inner width clear">
-		<a class="icon-menu menu-toggle"><?php _e( 'Menu', 'artra' ); ?></a>
 		<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 	</div>
     </nav><!-- #site-navigation -->
