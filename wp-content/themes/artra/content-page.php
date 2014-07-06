@@ -43,7 +43,8 @@
 			// Feedback form page
 			// Output Feedback Form
 			if($id == 64){
-				if (function_exists('user_submitted_posts')) user_submitted_posts();
+				//if (function_exists('user_submitted_posts')) user_submitted_posts();
+				echo do_shortcode('[sf_form]');
 			}
 			
 			// Feedback Page

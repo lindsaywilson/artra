@@ -53,6 +53,11 @@ jQuery(document).ready(function($) {
 			$(this).parents('.form-item').find('label').fadeIn('fast');
 		}
 	});
+	
+	// Feedback Form
+	$('#feedback-form input, #feedback-form textarea').off('focus blur');
+	$('#feedback-form').validate(); 
+	
 
 	
 	

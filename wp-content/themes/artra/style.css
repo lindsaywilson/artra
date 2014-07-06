@@ -1061,7 +1061,8 @@ input[type="email"],
 input[type="url"],
 input[type="password"],
 input[type="search"],
-div#user-submitted-posts fieldset input.usp-input.usp-clone,
+input[type="file"],
+select,
 textarea {
   border: 1px solid #f2e6d6;
   width: 100%;
@@ -1076,14 +1077,27 @@ textarea {
 textarea {
   height: 130px;
 }
-div#user-submitted-posts fieldset input.usp-input.usp-clone {
-  padding: 3px;
+select,
+input[type="file"] {
+  max-width: 300px;
+  display: block;
+}
+input::-ms-browse {
+  background: #ba5317;
+  border: none;
+  color: #ffffff;
+}
+input::-ms-value {
+  background: transparent;
+  border: none;
+  color: #ffffff;
 }
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="url"]:focus,
 input[type="password"]:focus,
 input[type="search"]:focus,
+select:focus,
 textarea:focus {
   border-color: #d8c3a7;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 0, 0, 0.1);
@@ -1110,8 +1124,16 @@ textarea:focus {
 .form-submit {
   text-align: center;
 }
-.wpcf7-response-output {
+label.error {
+  color: #ff0000;
+}
+.wpcf7-validation-errors {
   display: none !important;
+}
+div.wpcf7-mail-sent-ok {
+  background: #ba5317;
+  border: none;
+  color: #ffffff;
 }
 /* ------------------------------ */
 /* PAGE ELEMENTS
@@ -1314,29 +1336,25 @@ textarea:focus {
   float: right;
   width: 80%;
 }
-div#user-submitted-posts fieldset label,
-div#user-submitted-posts fieldset input.usp-input,
-div#user-submitted-posts textarea.usp-textarea {
-  float: none;
-  display: block;
-  width: auto;
+#feedback-form label {
+  position: relative;
+  top: 0;
+  left: 0;
 }
-div#user-submitted-posts fieldset input.usp-input {
-  width: 100%;
-  max-width: 400px;
+#feedback-form label:not(.error) {
+  font-size: 17px;
+  font-size: 1.7rem;
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #333333;
 }
-div#user-submitted-posts textarea.usp-textarea {
-  width: 100%;
+.form-sent {
+  background: #ba5317;
+  color: #fff;
+  padding: 10px 15px;
+  margin-bottom: 30px;
 }
-div#user-submitted-image {
-  float: none;
-  width: auto;
-}
-div.usp-input-error {
-  text-align: left;
-  font-size: 12px;
-  font-size: 1.2rem;
-  color: #ff0000;
+.form-sent a {
+  color: #ffffff;
 }
 /* ------------------------------ */
 /* CONSTANTS

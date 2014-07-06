@@ -158,16 +158,22 @@ input[type="email"],
 input[type="url"],
 input[type="password"],
 input[type="search"],
-div#user-submitted-posts fieldset input.usp-input.usp-clone,
+input[type="file"],
+select,
 textarea { border:1px solid @lightOrange; width:100%; color:@dark; padding:3px 10px; font-family:verdana; .font-size(1.3); background:@lightOrange; outline: none; }
 textarea{ height:130px}
-div#user-submitted-posts fieldset input.usp-input.usp-clone{ padding:3px;}
+select,
+input[type="file"]{ max-width:300px; display:block}
+
+input::-ms-browse{ background:@orange; border:none; color:#fff}
+input::-ms-value{ background:transparent; border:none; color:#fff}
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="url"]:focus,
 input[type="password"]:focus,
 input[type="search"]:focus,
+select:focus,
 textarea:focus{ border-color:#d8c3a7; box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 0, 0, 0.1)}
 
 .form-item{
@@ -176,7 +182,10 @@ textarea:focus{ border-color:#d8c3a7; box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) 
 	span.wpcf7-not-valid-tip{ .font-size(1.2)}
 }
 .form-submit{ text-align:center}
-.wpcf7-response-output{ display:none!important}
+
+label.error{ color:#f00}
+.wpcf7-validation-errors{ display:none!important}
+div.wpcf7-mail-sent-ok{ background:#ba5317; border:none; color:#fff}
 
 
 /* ------------------------------ */
@@ -268,10 +277,9 @@ textarea:focus{ border-color:#d8c3a7; box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) 
 	.feedback-image{ float:left; width:15%; }
 	blockquote{ float:right; width:80%}
 }
-div#user-submitted-posts fieldset label,
-div#user-submitted-posts fieldset input.usp-input,
-div#user-submitted-posts textarea.usp-textarea{ float:none; display:block; width:auto}
-div#user-submitted-posts fieldset input.usp-input{ width:100%; max-width:400px}
-div#user-submitted-posts textarea.usp-textarea{ width:100%}
-div#user-submitted-image{ float:none; width:auto}
-div.usp-input-error{ text-align:left; .font-size(1.2); color:#f00}
+#feedback-form{
+	label{ position:relative; top:0; left:0; }
+	label:not(.error){ .font-size(1.7); font-family:@opensans; color:@text}
+}
+.form-sent{ background:@orange; color:#fff; padding:10px 15px; margin-bottom:30px}
+.form-sent a{ color:#fff}
