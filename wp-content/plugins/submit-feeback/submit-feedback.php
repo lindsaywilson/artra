@@ -112,7 +112,7 @@ function sf_form_shortcode(){
 		$to = get_field('feedback_notification_address', 'option');
 		$msg = '<p>One of your clients has added a new feedback post to your website.</p>';
 		$msg .= '<p>View and approve the new content here: <a href="http://'.$_SERVER['HTTP_HOST'].'/wp-admin/post.php?post='.$feedback_id.'&action=edit">'.$sf_name.' - '.$sf_company.'</a></p>';
-		$headers = 'From: Feedback <feedback@artra.com.au>' . "\r\n";
+		$headers = 'From: Feedback <feedback@'.$_SERVER['HTTP_HOST'].'>' . "\r\n";
 		$headers .= 'Content-type: text/html' . "\r\n";
 		wp_mail($to, 'New client feedback has been created on your website', $msg, $headers );
 	 
