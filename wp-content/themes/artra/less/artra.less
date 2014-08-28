@@ -63,7 +63,7 @@ body{ font-family:verdana; color:@text; .font-size(1.6)}
 }
 
 
-#content{ padding-top: 40px; padding-bottom:90px;}
+#content{ padding-top: 40px; padding-bottom:40px;}
 
 .content-area{ float: left; margin: 0 -32% 0 0; width: 100%;}
 .site-main{ 
@@ -218,6 +218,10 @@ div.wpcf7-mail-sent-ok{ background:#ba5317; border:none; color:#fff}
 	.slides li{ margin-right:20px}
 }	
 
+.gallery-item {
+    margin-bottom: 1em;
+}
+
 
 /* QUOTE FORM
 /* ------------------------------ */
@@ -249,6 +253,10 @@ div.wpcf7-mail-sent-ok{ background:#ba5317; border:none; color:#fff}
 	.image{ text-align:center}
 	.with-content.with-image .content{ float:left; width:53%}
 	.with-content.with-image .image{ float:right; width:40%}
+}
+.extra-block.left{
+	.with-content.with-image .content{ float:right;}
+	.with-content.with-image .image{ float:left;}
 }
 
 
@@ -283,3 +291,52 @@ div.wpcf7-mail-sent-ok{ background:#ba5317; border:none; color:#fff}
 }
 .form-sent{ background:@orange; color:#fff; padding:10px 15px; margin-bottom:30px}
 .form-sent a{ color:#fff}
+
+#mc_embed_signup {
+	padding: 20px;
+	background: @lightOrange url(images/tile_rule.png) right 0 repeat-y;
+	border-radius: 5px;
+	.mc-field-group {
+		margin: 0 0 15px 0;
+		input {
+			padding: 5px;
+			background: #fff;
+		}
+	}
+	.button {
+		margin: 0 !important;
+	}
+	::-webkit-input-placeholder {
+	   color: #582D15;
+	   opacity: 1;
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+	   color: #582D15;  
+	   opacity: 1;
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+	   color: #582D15;
+	   opacity: 1;  
+	}
+
+	:-ms-input-placeholder {  
+	   color: #582D15;
+	   opacity: 1;  
+	}
+}
+.ajax-loader { display: none; }
+
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.alignleft {
+  float: left;
+}
+.alignright {
+  float: right;
+}

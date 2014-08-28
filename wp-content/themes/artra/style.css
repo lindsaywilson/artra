@@ -824,7 +824,7 @@ body {
 }
 #content {
   padding-top: 40px;
-  padding-bottom: 90px;
+  padding-bottom: 40px;
 }
 .content-area {
   float: left;
@@ -1209,6 +1209,9 @@ div.wpcf7-mail-sent-ok {
 #gallery .slides li {
   margin-right: 20px;
 }
+.gallery-item {
+  margin-bottom: 1em;
+}
 /* QUOTE FORM
 /* ------------------------------ */
 #text-3 {
@@ -1285,6 +1288,12 @@ div.wpcf7-mail-sent-ok {
   float: right;
   width: 40%;
 }
+.extra-block.left .with-content.with-image .content {
+  float: right;
+}
+.extra-block.left .with-content.with-image .image {
+  float: left;
+}
 /* CONTACT
 /* ------------------------------ */
 .page-id-84 .the-content {
@@ -1355,6 +1364,53 @@ div.wpcf7-mail-sent-ok {
 }
 .form-sent a {
   color: #ffffff;
+}
+#mc_embed_signup {
+  padding: 20px;
+  background: #f2e6d6 url(images/tile_rule.png) right 0 repeat-y;
+  border-radius: 5px;
+}
+#mc_embed_signup .mc-field-group {
+  margin: 0 0 15px 0;
+}
+#mc_embed_signup .mc-field-group input {
+  padding: 5px;
+  background: #fff;
+}
+#mc_embed_signup .button {
+  margin: 0 !important;
+}
+#mc_embed_signup ::-webkit-input-placeholder {
+  color: #582D15;
+  opacity: 1;
+}
+#mc_embed_signup :-moz-placeholder {
+  /* Firefox 18- */
+  color: #582D15;
+  opacity: 1;
+}
+#mc_embed_signup ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #582D15;
+  opacity: 1;
+}
+#mc_embed_signup :-ms-input-placeholder {
+  color: #582D15;
+  opacity: 1;
+}
+.ajax-loader {
+  display: none;
+}
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.alignleft {
+  float: left;
+}
+.alignright {
+  float: right;
 }
 /* ------------------------------ */
 /* CONSTANTS

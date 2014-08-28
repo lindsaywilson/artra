@@ -64,6 +64,15 @@
 	
 	if(is_front_page()): 	
 		include get_template_directory(). '/inc/homepage-slider.php';	
+	elseif (is_home() || is_single()): 
+		
+		$thumb_url = wp_get_attachment_url( get_post_thumbnail_id(get_option('page_for_posts')) );
+	
+	?>
+    	
+        <div id="header-image" style="background-image:url(<?php print $thumb_url; ?>);"></div>
+        
+    <?php
 	else:
 	?>
     	<div id="header-image" style="background-image:url(<?php print $thumb_url; ?>);"></div>
