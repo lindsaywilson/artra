@@ -10,6 +10,7 @@
 		$company = get_field('company');
 		$state = get_field('state');
 		$content = get_the_content();
+		$content = apply_filters('the_content', $content);
   ?>
             
   <li class="clear">
@@ -22,7 +23,7 @@
     </div>
     <div class="feedback-content">
       <blockquote>
-      	"<?php print wp_filter_nohtml_kses($content); ?>"
+      	<?php print $content; ?>
         <footer><?php print $name ?>, <?php print $company ?>, <?php print $state ?></footer>
       </blockquote>
     </div>
